@@ -1,0 +1,29 @@
+bin
+build
+.classpath
+.gradle
+.project
+.settings
+.springBeans
+.externalToolBuilders
+*.class
+*.MF
+out
+
+# Package Files #
+*.jar
+*.war
+*.ear
+
+
+# IntelliJ project files
+*.iws
+*.ipr
+.idea
+
+#winmerge backups
+*.bak
+*.bat
+
+#log  files
+*.log
