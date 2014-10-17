@@ -1,0 +1,4 @@
+rootProject.name='task02-memory-management'
+
+include 'pr1'
+include 'pr2'
