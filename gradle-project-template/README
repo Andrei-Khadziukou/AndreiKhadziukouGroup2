@@ -1,0 +1,5 @@
+Steps to add gradle wrapper support into project.
+0. Your system should have installed gradle (TODO add minimal version support)
+1. Copy file into project root
+2. Run 'gradle wrapper'
+3. Add generated and added files to version control and commit.
