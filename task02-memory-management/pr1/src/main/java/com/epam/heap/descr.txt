@@ -1,0 +1,5 @@
+The problem here is not enough memory for operation of loading 200 files (byte arrays)
+length 1mb each to memory. (200mb to heap)
+After collecting statistic (see JMV.png) we see lack of memory.
+To solve the problem I've allocated more heap memory to process (up to 500mb).
+Problem solved.
