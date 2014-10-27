@@ -18,6 +18,7 @@ out
 # IntelliJ project files
 *.iws
 *.ipr
+*.iml
 .idea
 
 #winmerge backups
