@@ -1,0 +1,5 @@
+
+dependencies {
+    compile project(':domain')
+    compile 'javax:javaee-api:6.0'
+}
