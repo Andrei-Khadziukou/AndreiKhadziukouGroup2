@@ -1,0 +1,6 @@
+include 'domain'
+include 'dao'
+include 'web-client'
+include 'ear'
+include 'service'
+include 'web-admin'

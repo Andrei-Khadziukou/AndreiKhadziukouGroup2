@@ -1,0 +1,20 @@
+apply plugin: 'ear'
+
+dependencies {
+    deploy project(path: ':web-admin', configuration: 'archives')
+    deploy project(path: ':web-client', configuration: 'archives')
+    deploy project(':service')
+    deploy project(':dao')
+    earlib project(':domain')
+}
+
+ear {
+    baseName = 'banking'
+    deploymentDescriptor {
+        applicationName = "banking"
+        displayName = "Banking"
+        webModule("web-admin.war", "/admin")
+        webModule("web-client.war", "/client")
+        module("service.jar", "ejb")
+    }
+}

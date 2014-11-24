@@ -1,0 +1,17 @@
+Create J2EE Application. The application should consist of several levels:
+
+1) Persistent - EJB3 Stateful Beans,CMB.
+
+2) Business logic - EJB 3 Stateless Session Beans, Facades,Services, Service Locators.
+
+3) Web - Servlet 3.0m jstl,jsp.
+
+The application should be packaged to ear and deployed to JBoss. You should implement security jaas model for application.
+
+Use application from the previous tasks as a template or create a new one.
+
+Previous application description is the following:
+
+Make an application that contains business logic for making exchange operations between different currencies.Create models for dealing with currencies, user accounts and exchange rates. One account can have multiple currency values. Use BigDecimal for performing of exchange calculations.Data with user accounts should be stored as files (one file per account). Separate application functionality to DAO, service and utilities. Create module that will provide high-level operations (manage accounts, currencies, exchange rates). Create sample accounts and currencies. Define sample exchange rates.Provide concurrent data access to user accounts. Simulate simultaneous currency exchanges for single account by multiple threads and ensure that all the operations are thread-safe. Use ExecutorService for thread managing.Make custom exceptions to let user to know the reason of error. Don't handle Runtime exceptions. Validate inputs such an account existence, sufficiency of currency amount, etc.Log information about what is happening on different application levels and about conversion results. Use Logger for that.
+
+Please cover functionality by unit tests.
