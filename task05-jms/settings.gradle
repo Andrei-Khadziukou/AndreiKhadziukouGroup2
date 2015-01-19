@@ -1,0 +1,4 @@
+rootProject.name='jms'
+
+include 'client'
+include 'server'
