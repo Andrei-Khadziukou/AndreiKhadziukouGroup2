@@ -1,0 +1,27 @@
+apply plugin: 'java'
+apply plugin: 'idea'
+
+sourceCompatibility = 1.7
+
+repositories {
+    jcenter()
+}
+
+allprojects {
+    group='com.epam.mentor'
+    idea {
+        project {
+            jdkName = '1.7'
+            languageLevel = '1.7'
+        }
+    }
+}
+
+subprojects {
+    apply plugin: 'idea'
+    apply plugin: 'java'
+    repositories {
+        jcenter()
+    }
+}
+
