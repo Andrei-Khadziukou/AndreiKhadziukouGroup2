@@ -1,27 +1,63 @@
-apply plugin: 'java'
-apply plugin: 'idea'
-
-sourceCompatibility = 1.7
-
-repositories {
-    jcenter()
-}
-
 allprojects {
-    group='com.epam.mentor'
-    idea {
-        project {
-            jdkName = '1.7'
-            languageLevel = '1.7'
-        }
+    apply plugin: 'java'
+    apply plugin: 'idea'
+    apply plugin: 'cobertura'
+    apply plugin: 'findbugs'
+    apply plugin: 'checkstyle'
+
+    group = 'com.epam.mentor'
+
+    sourceCompatibility = 1.7
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        testCompile 'junit:junit:4.11'
+        compile 'log4j:log4j:1.2.17'
     }
 }
 
 subprojects {
-    apply plugin: 'idea'
-    apply plugin: 'java'
-    repositories {
-        jcenter()
+    cobertura {
+        coverageFormats = ['html', 'xml']
+        coverageIgnoreTrivial = true
+        coverageIgnores = ['org.slf4j.Logger.*', 'javax.ejb.Singleton']
+        coverageReportDir = new File("$buildDir/reports/cobertura")
+    }
+    test.finalizedBy(project.tasks.cobertura)
+
+    checkstyle {
+        configFile = new File("config/checkstyle/checkstyle.xml")
+    }
+    checkstyleMain << {
+        ant.xslt(in: reports.xml.destination,
+                style: new File("../config/checkstyle/checkstyle-noframes-sorted.xsl"),
+                out: new File(reports.xml.destination.parent, 'main.html'))
+    }
+
+    findbugs {
+        toolVersion = "2.0.1"
+        sourceSets = [sourceSets.main]
+        ignoreFailures = true
+        reportsDir = file("$project.buildDir/reports/findbugs")
+        effort = "max"
+        reportLevel = "low"
+        visitors = ["FindSqlInjection", "SwitchFallthrough"]
+        omitVisitors = ["FindNonShortCircuit"]
+    }
+    tasks.withType(FindBugs) {
+        reports {
+            xml.enabled = false
+            html.enabled = true
+        }
     }
 }
 
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath "net.saliman:gradle-cobertura-plugin:2.2.4"
+    }
+}
