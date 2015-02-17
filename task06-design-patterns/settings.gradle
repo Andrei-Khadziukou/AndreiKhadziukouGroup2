@@ -1,0 +1,3 @@
+rootProject.name='task06-design-patterns'
+
+include 'server'

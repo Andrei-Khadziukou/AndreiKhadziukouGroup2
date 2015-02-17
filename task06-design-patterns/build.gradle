@@ -1,0 +1,19 @@
+allprojects {
+    apply plugin: 'java'
+    apply plugin: 'idea'
+
+    group = 'com.epam.mentor'
+
+    sourceCompatibility = 1.7
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        testCompile 'junit:junit:4.11'
+        compile 'log4j:log4j:1.2.17'
+    }
+}
+
+subprojects {
+
+}
