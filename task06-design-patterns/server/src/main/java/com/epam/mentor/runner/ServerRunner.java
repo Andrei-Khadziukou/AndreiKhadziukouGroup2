@@ -5,7 +5,7 @@ import com.epam.mentor.ohsl.TicketServise;
 
 import java.math.BigDecimal;
 
-public class Runner {
+public class ServerRunner {
     public static void main(String[] args) {
         ITicketService service = new TicketServise();
         service.sellOne("zu", BigDecimal.ZERO, 3, 3);
